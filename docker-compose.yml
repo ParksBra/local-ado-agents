@@ -1,17 +1,17 @@
 services:
-  agent0:
+  local-lab-ado-agent0:
     build:
       context: ./src/ado
       dockerfile: Dockerfile
-    image: agent
-    hostname: agent0
-    container_name: agent0
+    image: local-lab-ado-agent
+    hostname: local-lab-ado-agent0
+    container_name: local-lab-ado-agent0
     env_file: .env
     restart: unless-stopped
     networks:
-      ado_agent:
+      ado_local-lab-ado_agent:
         aliases:
-          - agent0
+          - local-lab-ado-agent0
     deploy:
       resources:
         limits:
@@ -21,16 +21,16 @@ services:
           cpus: '0.05'
           memory: 256M
 
-  agent1:
-    image: agent
-    hostname: agent1
-    container_name: agent1
+  local-lab-ado-agent1:
+    image: local-lab-ado-agent
+    hostname: local-lab-ado-agent1
+    container_name: local-lab-ado-agent1
     env_file: .env
     restart: unless-stopped
     networks:
-      ado_agent:
+      ado_local-lab-ado_agent:
         aliases:
-          - agent1
+          - local-lab-ado-agent1
     deploy:
       resources:
         limits:
@@ -40,16 +40,16 @@ services:
           cpus: '0.05'
           memory: 256M
 
-  agent2:
-    image: agent
-    hostname: agent2
-    container_name: agent2
+  local-lab-ado-agent2:
+    image: local-lab-ado-agent
+    hostname: local-lab-ado-agent2
+    container_name: local-lab-ado-agent2
     env_file: .env
     restart: unless-stopped
     networks:
-      ado_agent:
+      ado_local-lab-ado_agent:
         aliases:
-          - agent2
+          - local-lab-ado-agent2
     deploy:
       resources:
         limits:
@@ -60,5 +60,5 @@ services:
           memory: 256M
 
 networks:
-  ado_agent:
+  ado_local-lab-ado_agent:
     driver: bridge
