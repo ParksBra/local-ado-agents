@@ -1,0 +1,67 @@
+services:
+  ado_agent_0:
+    build:
+      context: ./src/ado
+      dockerfile: Dockerfile
+    hostname: agent-0
+    container_name: ado_agent_0
+    env_file: ".env"
+    restart: unless-stopped
+    networks:
+      ado_agent:
+        aliases:
+          - agent-0
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 4G
+        reservations:
+          cpus: '0.05'
+          memory: 256M
+
+  ado_agent_1:
+    build:
+      context: ./src/ado
+      dockerfile: Dockerfile
+    hostname: agent-1
+    container_name: ado_agent_1
+    env_file: ".env"
+    restart: unless-stopped
+    networks:
+      ado_agent:
+        aliases:
+          - agent-1
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 4G
+        reservations:
+          cpus: '0.05'
+          memory: 256M
+
+  ado_agent_2:
+    build:
+      context: ./src/ado
+      dockerfile: Dockerfile
+    hostname: agent-2
+    container_name: ado_agent_2
+    env_file: ".env"
+    restart: unless-stopped
+    networks:
+      ado_agent:
+        aliases:
+          - agent-2
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 4G
+        reservations:
+          cpus: '0.05'
+          memory: 256M
+
+networks:
+  ado_agent:
+    driver: bridge
