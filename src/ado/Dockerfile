@@ -7,7 +7,7 @@ ENV TARGETARCH="linux-musl-x64"
 
 RUN apk update && \
   apk upgrade && \
-  apk add bash curl gcc git icu-libs jq musl-dev python3-dev libffi-dev openssl-dev cargo make &&
+  apk add bash curl gcc git icu-libs jq musl-dev python3-dev libffi-dev openssl-dev cargo make
 
 # Install required packages for ADO pipelines (custom)
 RUN apk add openssh openssl
